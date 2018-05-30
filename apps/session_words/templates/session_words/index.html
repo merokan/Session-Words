@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Words</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'session_words/styles.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left-side">
+            <h1>Add a new word</h1>
+            <form action="/session_words/add_word" method="post">
+                {% csrf_token %}
+                <input type="text" name="word"><br><br>
+                Choose color: <br>
+                <input type="radio" name="color" value="red"> Red<br>
+                <input type="radio" name="color" value="green"> Green<br>
+                <input type="radio" name="color" value="blue"> Blue<br><br>
+                <input type="radio" name="big" value="big"> show in BIG font!<br><br>
+                <input type="radio" name="big" value="notbig"> show in small font!<br><br>
+                <input type="submit" id="blue-button" value="Add to Session">
+            </form>
+        </div>
+        <div id="right-side">
+            <form action="/session_words/clear" name="clear" method="post">
+                {% csrf_token %}
+                <input type="submit" id="red-button" value="Clear Session">
+            </form>
+            <div id="session-word">
+                {% if request.session.wordList %}
+                    {%for dict in request.session.wordList%}
+                    <div><span class="{{dict.color}} {{dict.big}}">{{dict.word}}</span> - added on {{dict.time}}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

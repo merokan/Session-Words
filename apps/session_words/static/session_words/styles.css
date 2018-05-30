@@ -1,0 +1,50 @@
+#blue-button{
+    background: lightblue;
+}
+#red-button{
+    background: lightcoral;
+    position: absolute;
+    right: 15px;
+    margin-bottom: 15px;
+}
+#wrapper{
+    width: 900px;
+    position: relative;
+}
+#left-side{
+    position: absolute;
+    left: 0;
+    border-right: 1px solid black;
+    padding: 15px;
+    display: inline-block;
+    width: 400px;
+}
+#right-side{
+    position: absolute;
+    right: 0;
+    padding: 15px;
+    width: 400px;
+    display: inline-block;
+}
+#session-word{
+    position: relative;
+    left: 0;
+    top: 25px; 
+    display: inline-block;
+    width: 400px;
+}
+span.red{
+    color: red;
+}
+span.blue{
+    color: blue;
+}
+span.green{
+    color: green;
+}
+span.big{
+    font-size: 30px;
+}
+span.notbig{
+    font-size: 10px;
+}
